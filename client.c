@@ -71,7 +71,7 @@ int main(void)
     iph.ip_off = htons((0&IP_RF) | (0&IP_DF) | (0&IP_MF));
     iph.ip_ttl=64;
     iph.ip_p = 17;
-    iph.ip_sum = csum ((unsigned short *) &iph, sizeof(iph));
+    iph.ip_sum = htons(csum ((unsigned short *) &iph, sizeof(iph)));
     inet_aton("127.0.0.1",&(iph.ip_dst));
     inet_aton("127.0.0.1",&(iph.ip_src));
 
